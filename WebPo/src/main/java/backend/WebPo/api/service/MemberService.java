@@ -35,6 +35,9 @@ public class MemberService {
     }
 
     public Long createMember(CreateMemberRequest request) {
+        if (memberRepository.existsByLoginId(request.getLoginId())){
+            return -1L;
+        }
         Member member = new Member();
         member.setLoginId(request.getLoginId());
         member.setLoginPw(passwordEncoder.encode(request.getLoginPw()));
