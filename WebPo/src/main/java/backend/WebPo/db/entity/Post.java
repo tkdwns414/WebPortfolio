@@ -19,7 +19,7 @@ public class Post {
 
     private String detail;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<PostUrl> urls = new ArrayList<>();
 
     //이미지 나중에 추가하기
